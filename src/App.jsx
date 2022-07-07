@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
 import {gql, useQuery} from '@apollo/client'
+import { render } from 'react-dom'
+import {Pokemons} from './components/Pokemons'
 
 const variables = null
 
@@ -16,10 +18,10 @@ query getItems{
 }`
 
 const GET_POKES = gql`
-query gen3_species { 
-  pokemon_v2_pokemonspecies{
-    name
+query get_pokemons { 
+  pokemon_v2_pokemon{
     id
+    name
   }
 }`
 
@@ -28,6 +30,19 @@ function App() {
   const [count, setCount] = useState(0)
   const {data, error, loading} = useQuery(GET_POKES)
 
+
+  const render_pokes = () => {
+    if(loading)
+      return <p>Loading...</p>
+    
+    console.log(data) 
+    if(data)
+      return <Pokemons pokemons={data.pokemon_v2_pokemon}/>
+    
+    
+    return <p> No Pokes </p>
+    
+  }
   console.log(data)
   if (error) return <span style='color: red'>{error}</span>
 
@@ -37,19 +52,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        {loading 
-          ? <p>Loading...</p>
-          : (
-            <>
-              <p>PokeAPI GraphQL + React!</p>
-              {
-                data && data.pokemon_v2_pokemonspecies.map(poke => poke.name).join(', ') 
-              }
-            </>
-          )
-        }
-
-
+        {render_pokes()}
       </header>
     </div>
   )
