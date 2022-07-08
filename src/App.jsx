@@ -1,59 +1,53 @@
 import { useEffect, useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
-import {gql, useQuery} from '@apollo/client'
+import { useQuery, useLazyQuery} from '@apollo/client'
 import { render } from 'react-dom'
 import {Pokemons} from './components/Pokemons'
-
-const variables = null
-
-const operationName = "getItems"
-
-const GET_ITEMS = gql`
-query getItems{
-  pokemon_v2_item{
-    name
-    cost
-  }
-}`
-
-const GET_POKES = gql`
-query get_pokemons { 
-  pokemon_v2_pokemon{
-    id
-    name
-  }
-}`
+import {GET_POKES} from './graphql/queries'
 
 
 function App() {
-  const [count, setCount] = useState(0)
-  const {data, error, loading} = useQuery(GET_POKES)
+  var [offset] = useState(150);
+  const [runQuery] = useLazyQuery(GET_POKES); 
+  const {data, error, loading} = useQuery(GET_POKES,{
+    variables: {
+      offset: offset
+    }
+  });
 
-
-  const render_pokes = () => {
-    if(loading)
-      return <p>Loading...</p>
-    
-    console.log(data) 
-    if(data)
-      return <Pokemons pokemons={data.pokemon_v2_pokemon}/>
-    
-    
-    return <p> No Pokes </p>
-    
+  const next_page = async () =>{
+      offset += 30
+      
+      const response = await runQuery({
+        variables: {
+          offset: offset,
+        }
+      });
+      
+      if (response !== undefined && ! response.loading){
+        console.log("YEPa")
+        pokes = response.data.pokemon_v2_pokemon
+      }
+      
+      console.log(response)
+      
   }
+
+ 
+
   console.log(data)
   if (error) return <span style='color: red'>{error}</span>
+  if(loading)
+      return <p>Loading...</p>
 
-
+  var pokes = data.pokemon_v2_pokemon
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        {render_pokes()}
-      </header>
+      Pokemons
+      <button onClick={next_page}>next</button>
+      <Pokemons pokemons={pokes}/>
     </div>
   )
 }
