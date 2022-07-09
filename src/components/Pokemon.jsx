@@ -8,7 +8,7 @@ export const Pokemon = ( {pokemon}) => {
             </div>
             
             <div className="Poke-info">
-                <div className="Poke-id">N.{pad(pokemon.id)}</div>
+                <div className="Poke-id">N.º{pad(pokemon.id)}</div>
                 {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
                 
                 <div className="Poke-types">

@@ -1,5 +1,6 @@
 const SPRITE_URI = 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/'
 const DIGITS = 3
+export const POKEMON_NUM = 905
 
 /**
  *  Transform the number into a string with length = DIGITS
@@ -22,4 +23,9 @@ export function pad(number) {
  */
 export function get_sprite(pokemon_id) {
     return SPRITE_URI + pad(pokemon_id) + '.png';
+}
+
+
+export function mod(n,m){
+    return ((n % m) + m) % m;
 }

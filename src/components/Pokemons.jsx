@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import {Pokemon} from './Pokemon'
 
 export const Pokemons = ( {pokemons}) => {

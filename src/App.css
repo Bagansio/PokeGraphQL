@@ -47,33 +47,42 @@ button {
   }
 }
 */
+
+
 .Poke-grid {
+  --repeat: 5;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  max-width: 1500px;
   align-items: center;
+  margin: 0 auto;
   justify-content: center;
 }
 
 .Poke-info {
+  /*border: 2px solid red;*/
   text-align: left;
  align-self: end;
  margin: .5rem;
  padding: .5rem;
+ margin-top: 0px;
+ padding-top: 0px;
+ font-family: "Flexo-Demi",arial,sans-serif;
+ color: #313131
   /*background-color: #DFDFDF;*/
 }
 
 .Poke-id{
-  font-size: 1rem;
-}
-.Poke-sprite {
-  border-radius: 10px;
- 
-  background-color: #f2f2f2;
+  font-size: .75rem;
+  color: grey;
 }
 
+
 .Poke-sprite {
+  border-radius: 10px;
   aspect-ratio: 2 / 1;
   object-fit: cover;
+  background-color: #f2f2f2;
 }
 
 .Poke-sprite > img{
