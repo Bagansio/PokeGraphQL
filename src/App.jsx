@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import logo from './logo.svg'
-import './App.css'
+import './styles/App.css'
 import { useQuery, useLazyQuery} from '@apollo/client'
 import { render } from 'react-dom'
 import {Pokemons} from './components/Pokemons'
@@ -45,9 +45,13 @@ function App() {
 
   return (
     <div className="App">
-      <button onClick={prev_page}> prev </button>
       Pokemons
-      <button onClick={next_page}>next</button>
+      <div>
+        <button className="page-button" onClick={prev_page}> &#8249; </button>
+      
+        <button className="page-button" onClick={next_page}> &#8250; </button>
+      </div>
+      
       <Pokemons pokemons={data.pokemon_v2_pokemon}/>
     </div>
   )
