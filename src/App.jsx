@@ -37,6 +37,12 @@ function App() {
   }
 
 
+  const random_page = () => {
+    let new_offset = Math.floor(Math.random() * POKEMON_NUM)
+    setOffset(new_offset - (new_offset % 5))
+ 
+  }
+
   if(loading)
       return (<p>Loading...</p>)
   if (error) 
@@ -48,7 +54,7 @@ function App() {
       Pokemons
       <div>
         <button className="page-button" onClick={prev_page}> &#8249; </button>
-      
+        <button className="page-button" onClick={random_page}> random </button>
         <button className="page-button" onClick={next_page}> &#8250; </button>
       </div>
       
