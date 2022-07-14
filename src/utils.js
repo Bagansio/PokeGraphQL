@@ -29,3 +29,5 @@ export function get_sprite(pokemon_id) {
 export function mod(n,m){
     return ((n % m) + m) % m;
 }
+
+
