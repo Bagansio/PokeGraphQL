@@ -24,7 +24,7 @@ function App() {
     if(! loading && data){
       setPokes(data.pokemon_v2_pokemon);
     }
-  }, [loading, data])
+  }, [loading, data]) 
 
   const next_page = () =>{
     setOffset(mod(offset+5, POKEMON_NUM))
@@ -42,8 +42,17 @@ function App() {
     setOffset(new_offset - (new_offset % 5))
   }
 
-  if(loading)
-      return (<p>Loading...</p>)
+
+  const setPokeList = (new_list, value) => {
+    if (value === '')
+      setPokes(data.pokemon_v2_pokemon)
+    else
+      setPokes(new_list)
+  } 
+  
+
+  /*if(loading)
+      return (<p>Loading...</p>)*/
   if (error) 
       return (<span style='color: red'>{error}</span>)
   
@@ -51,7 +60,7 @@ function App() {
   return (
     <div className="App">
       Pokemons
-      <SearchBar setPokes={setPokes}/>
+      <SearchBar setPokes={setPokeList}/>
       <div>
         <button className="page-button" onClick={prev_page}> &#8249; </button>
         <button className="page-button" onClick={random_page}> random </button>

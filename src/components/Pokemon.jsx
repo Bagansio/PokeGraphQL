@@ -4,7 +4,6 @@ import '../styles/Types.css'
 export const Pokemon = ( {pokemon}) => {
 
     const render_type = (type) => {
-        console.log(type)
         return <div className={['Poke-type',type.pokemon_v2_type.name].join(' ')}>{type.pokemon_v2_type.name}</div>
     } 
     

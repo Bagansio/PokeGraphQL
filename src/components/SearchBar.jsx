@@ -24,7 +24,7 @@ export const SearchBar = ({setPokes}) => {
     useEffect(() => {
         
         if(! loading && data && value !== undefined){
-            setPokes(data.pokemon_v2_pokemon)
+            setPokes(data.pokemon_v2_pokemon, value)
         }
     }, [loading, data])
 
