@@ -1,8 +1,9 @@
 .Poke-type {
 	margin: 5px;
 	padding: 5px 8px 5px 8px;
-	width: 15%;
+	width: 20%;
 	text-align: center;
+	display: inline;
 	float:left;
 	border-radius: 6px;
 	-webkit-border-radius: 6px; 

@@ -26,24 +26,23 @@ function App() {
     }
   }, [loading, data]) 
 
-  const next_page = () =>{
+  function next_page (){
     setOffset(mod(offset+5, POKEMON_NUM))
   }
 
-  const prev_page = () =>{
+  function prev_page(){
     
     setOffset(mod(offset-5, POKEMON_NUM))
 
   }
 
-
-  const random_page = () => {
+  function random_page() {
     let new_offset = Math.floor(Math.random() * POKEMON_NUM)
     setOffset(new_offset - (new_offset % 5))
   }
 
 
-  const setPokeList = (new_list, value) => {
+  function setPokeList(new_list, value){
     if (value === '')
       setPokes(data.pokemon_v2_pokemon)
     else

@@ -36,7 +36,7 @@ button {
 
 .Poke {
   padding: 5px;
-  gap: 1rem;
+  gap: var(--more-info ,1rem);
 }
 /*
 @media (min-width: 900px){
@@ -101,3 +101,12 @@ button {
   margin: 5px;
 }
 
+
+.Poke:active {
+  background-color: rgb(186, 186, 186);
+}
+
+.Poke.featured {
+  grid-row: span 2;
+  grid-column: span 2;
+}
