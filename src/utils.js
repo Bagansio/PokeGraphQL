@@ -1,6 +1,18 @@
+import { useContext, createContext } from "react"
+
 const SPRITE_URI = 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/'
 const DIGITS = 3
 export const POKEMON_NUM = 905
+export const POKEMON_LENGUAGE = 9
+
+
+
+export const featuredContext = createContext({
+    value: undefined,
+    setValue: () => {}
+});
+
+
 
 /**
  *  Transform the number into a string with length = DIGITS

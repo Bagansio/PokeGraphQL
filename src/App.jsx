@@ -7,10 +7,10 @@ import {Pokemons} from './components/Pokemons'
 import {GET_POKES} from './graphql/queries'
 import {POKEMON_NUM, mod} from './utils'
 import {SearchBar} from './components/SearchBar'
-
+import logoName from './static/logoName.png'
 function App() {
-  var [offset, setOffset] = useState(0);
-  var [pokes, setPokes] = useState([]);
+  const [offset, setOffset] = useState(0);
+  const [pokes, setPokes] = useState([]);
 
   //const [runQuery] = useLazyQuery(GET_POKES); 
 
@@ -26,24 +26,23 @@ function App() {
     }
   }, [loading, data]) 
 
-  const next_page = () =>{
+  function next_page (){
     setOffset(mod(offset+5, POKEMON_NUM))
   }
 
-  const prev_page = () =>{
+  function prev_page(){
     
     setOffset(mod(offset-5, POKEMON_NUM))
 
   }
 
-
-  const random_page = () => {
+  function random_page() {
     let new_offset = Math.floor(Math.random() * POKEMON_NUM)
     setOffset(new_offset - (new_offset % 5))
   }
 
 
-  const setPokeList = (new_list, value) => {
+  function setPokeList(new_list, value){
     if (value === '')
       setPokes(data.pokemon_v2_pokemon)
     else
@@ -56,10 +55,11 @@ function App() {
   if (error) 
       return (<span style='color: red'>{error}</span>)
   
-
+  
   return (
     <div className="App">
-      Pokemons
+      <br/>
+      <img src={logoName}/>
       <SearchBar setPokes={setPokeList}/>
       <div>
         <button className="page-button" onClick={prev_page}> &#8249; </button>

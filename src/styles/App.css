@@ -36,7 +36,7 @@ button {
 
 .Poke {
   padding: 5px;
-  gap: 1rem;
+  gap: var(--more-info ,1rem);
 }
 /*
 @media (min-width: 900px){
@@ -49,13 +49,13 @@ button {
 
 .Poke-info {
   /*border: 2px solid red;*/
-  text-align: left;
- align-self: end;
+ text-align: left;
+ align-self: center;
  margin: .5rem;
  padding: .5rem;
  margin-top: 0px;
  padding-top: 0px;
- font-family: "Flexo-Demi",arial,sans-serif;
+ 
  color: #313131;
  
  overflow: auto;
@@ -70,28 +70,30 @@ button {
 }
 
 .Poke-name{
-  
+  padding-top: 5px;
   font-size: 2rem;
+  font-family: "Flexo-Demi",arial,sans-serif;
 }
 
 .Poke-sprite {
   border-radius: 10px;
   aspect-ratio: 2 / 1;
   object-fit: cover;
-  background-color: #f2f2f2;
+  background: #E8F1F5;
 }
 
 .Poke-sprite > img{
-  max-height: 200px;
-  max-height: 200px;
+  
+  align-items: center;
 }
 
 
 .Poke-grid {
+  padding: 5px;
   --repeat: 5;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  max-width: 1500px;
+  max-width: 1490px;
   align-items: center;
   margin: 0 auto;
   justify-content: center;
@@ -101,3 +103,55 @@ button {
   margin: 5px;
 }
 
+
+.Poke:active {
+  background-color: #E8F1F5;
+}
+
+.Poke.featured {
+  grid-row: span 2;
+  grid-column: span 2;
+}
+
+.Poke.featured {
+  padding: 1px;
+  border-radius: 10px;
+  height: 100%;
+  background-color: #FAFAFA;
+  border: 1px solid #fbfbfb;
+  
+}
+
+.Poke-Weight-Height {
+  font-size: 1.8rem;
+  padding: 0px;
+}
+
+.Poke-Weight-Height > div{
+  align-items: center;
+}
+
+
+.Poke-Weight{
+  padding-right: 2rem;
+  
+  margin: 2px;
+  float: right;
+}
+
+.Poke-Height{
+  padding-left: 2rem;
+  
+  margin: 2px;
+  float: left;
+}
+
+.Poke-desc {
+  padding-top: 15px;
+  font-size: 1.5rem;
+}
+
+.Poke-desc > p {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}

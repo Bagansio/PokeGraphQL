@@ -5,7 +5,7 @@ This project uses the GraphQL endpoint of PokeAPI and React with the purpose of 
 
 ## TO DO LIST
 - [x] Create search bar
-- [ ] Prettify the app
+- [ ] Prettify the app (Advanced)
 - [ ] Tests
-- [ ] OnClick pokemon show more info
+- [x] OnClick pokemon show more info
 - [ ] Refactor main functions to decopled hooks
