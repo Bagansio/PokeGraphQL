@@ -1,11 +1,11 @@
 import { createContext, useEffect, useState } from 'react'
 import {Pokemon} from './Pokemon'
-import {featuredContext} from '../hooks/pokemon'
+import {featuredContext} from '../utils'
+
 
 
 export const Pokemons = ( {pokemons}) => {
 
-     
 
     const [featured, setFeatured] = useState(undefined);
     const value = {featured, setFeatured}

@@ -7,10 +7,10 @@ import {Pokemons} from './components/Pokemons'
 import {GET_POKES} from './graphql/queries'
 import {POKEMON_NUM, mod} from './utils'
 import {SearchBar} from './components/SearchBar'
-
+import logoName from './static/logoName.png'
 function App() {
-  var [offset, setOffset] = useState(0);
-  var [pokes, setPokes] = useState([]);
+  const [offset, setOffset] = useState(0);
+  const [pokes, setPokes] = useState([]);
 
   //const [runQuery] = useLazyQuery(GET_POKES); 
 
@@ -55,10 +55,11 @@ function App() {
   if (error) 
       return (<span style='color: red'>{error}</span>)
   
-
+  
   return (
     <div className="App">
-      Pokemons
+      <br/>
+      <img src={logoName}/>
       <SearchBar setPokes={setPokeList}/>
       <div>
         <button className="page-button" onClick={prev_page}> &#8249; </button>
